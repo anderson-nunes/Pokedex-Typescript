@@ -13,10 +13,10 @@
   },
 
   "extends": [
-    "eslint:recommended",
-    "plugin: react/recommended",
-    "plugin: @typescript-eslint/recommended",
-    "plugin: @typescript/recommended"
+    // "eslint:recommended",
+    // "plugin:react/recommended",
+    // "plugin:@typescript-eslint/recommended",
+    // "plugin:@typescript/recommended"
   ],
 
   "overrides": [],
@@ -26,7 +26,7 @@
     "sourceType": "module"
   },
 
-  "plugin": ["react", "@typescript-eslint", "react-hooks"],
+  "plugins": ["react", "@typescript-eslint", "react-hooks"],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",

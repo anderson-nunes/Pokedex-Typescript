@@ -38,7 +38,7 @@ export const PokemonList = () => {
                   pokemon={pokemon}
                   name={pokemon.name}
                   image={pokemon.sprites.other.dream_world.front_default}
-                  types={pokemon.types.map(typeObj => typeObj.type.name).join(" ")}
+                  types={pokemon.types[0].type.name || 'normal'}
                   id={pokemon.id}
                 />
               )

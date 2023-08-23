@@ -19,7 +19,7 @@ export const Card = ({ name, image, types, id, pokemon }:
 
   const { addToPokemon } = useContext(PokemonCardContextTeste)
 
-  console.log('addPokemon==>>', addToPokemon)
+  console.log('@types==>>', types)
 
   // const handleAddToCart = () => {
   //   const pokemon = {
