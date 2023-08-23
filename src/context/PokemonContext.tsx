@@ -170,7 +170,7 @@ const PokemonProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const getPokemons = async () => {
     try {
       const pokemonPoints: Promise<AxiosResponse<Pokemon>>[] = []
-      for (let i = 1; i <= 28; i++) {
+      for (let i = 521; i <= 555; i++) {
         pokemonPoints.push(axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`))
       }
 
