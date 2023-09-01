@@ -58,6 +58,7 @@ export const CardContainer = styled.div`
   gap: 50px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `
 
 export const Card = styled.div<CardProps>`
@@ -201,7 +202,7 @@ export const CardPokeTypes = styled.div`
 `
 
 export const CardTypesImg = styled.img`
-  width: 30px;
+  width: 40px;
   height: auto;
 `
 
@@ -217,4 +218,19 @@ export const CardtextName = styled.h2`
   background-size: cover;
   -webkit-background-clip: text;
   color: transparent;
+`
+
+export const PokeBallOpen = styled.img`  
+  width: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  margin: 0 auto;
+`
+
+
+export const PokeBallClose = styled.img`  
+  width: 40px;
 `

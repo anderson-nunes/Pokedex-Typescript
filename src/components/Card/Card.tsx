@@ -1,11 +1,16 @@
 import React, { useContext } from 'react'
-import * as S from './styles'
+import { PokemonCardContext, PokemonData } from 'context/PokemonCardContext'
 import { getTypeImageByType } from '../../components/Card/vector/getTypesPokemonImg'
-import { PokemonCardContextTeste, PokemonData } from 'context/PokemonCardContextTeste'
+import { goToPokemonDetailPage } from '../../routes/coordinatos'
+import { useNavigate, useLocation } from 'react-router-dom'
+import * as S from './styles'
 //@ts-ignore
 import pokeBolaSemFundo from '../../assets/pokeBolaSemFundo.png'
 //@ts-ignore
-import pokeBola from '../../assets/pokeBola.png'
+import pokeBolaFechada from '../../assets/pokeBolaFechada.png'
+//@ts-ignore
+
+import pokeBallOpen from '../../assets/pokeBallOpen.png'
 
 
 export const Card = ({ name, image, types, id, pokemon }:
@@ -17,20 +22,11 @@ export const Card = ({ name, image, types, id, pokemon }:
     id: number
   }) => {
 
-  const { addToPokemon } = useContext(PokemonCardContextTeste)
+  const { addToPokemon, removePokemon } = useContext(PokemonCardContext)
 
-  console.log('@types==>>', types)
+  const navigate = useNavigate()
 
-  // const handleAddToCart = () => {
-  //   const pokemon = {
-  //     id,
-  //     name,
-  //     amount: 1,
-  //   };
-  //   addToPokemon(pokemon);
-  // };
-
-
+  const location = useLocation()
 
   return (
     <S.CardContainer>
@@ -46,7 +42,9 @@ export const Card = ({ name, image, types, id, pokemon }:
           />
         </div>
 
-        <S.CardPokeImg src={pokeBolaSemFundo} alt="Pokebola Sem fundo" />
+        <S.CardPokeImg
+          onClick={() => goToPokemonDetailPage(navigate, name, types, id)}
+          src={pokeBolaSemFundo} alt="Pokebola Sem fundo" />
 
         <div className="contentBx">
           <S.CardtextName>{name}</S.CardtextName>
@@ -62,12 +60,22 @@ export const Card = ({ name, image, types, id, pokemon }:
               ))}
             </S.CardPokeTypes>
           </div>
-          <img
-            onClick={() => addToPokemon(pokemon)}
-            className="pokebola"
-            src={pokeBola}
-            alt=""
-          />
+          {location.pathname === '/' &&
+            <S.PokeBallClose
+              onClick={() => addToPokemon(pokemon)}
+              className="pokebola"
+              src={pokeBolaFechada}
+              alt=""
+            />
+          }
+          {location.pathname === '/pokedexPage' &&
+            <S.PokeBallOpen
+
+              onClick={() => removePokemon(id)}
+              src={pokeBallOpen}
+              alt=""
+            />
+          }
         </div>
       </S.Card>
     </S.CardContainer>

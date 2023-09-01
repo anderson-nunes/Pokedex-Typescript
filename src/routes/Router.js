@@ -1,7 +1,8 @@
-import React from 'react'
+// import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { PokemonList } from '../pages/PokemonListPage/PokemonList'
-import { PokedexPage } from '../pages/PokedexPage/PokedexPage'
+import { PokemonDetail } from '../pages/PokemonDetailPage/PokemonDetail'
+import { Pokedex } from '../pages/PokedexPage/PokedexPage'
 
 
 const Router = () => {
@@ -9,7 +10,9 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<PokemonList />} />
-        <Route path='/pokedexPage' element={<PokedexPage />} />
+        <Route path='/pokedexPage' element={<Pokedex />} />
+        <Route path='/detailPage/:name/:types/:id' element={<PokemonDetail />} />
+
       </Routes>
     </BrowserRouter>
   )

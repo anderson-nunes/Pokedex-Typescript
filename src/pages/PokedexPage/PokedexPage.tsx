@@ -1,13 +1,13 @@
 
 import React, { useContext } from 'react'
 import { Card } from '../../components/Card/Card'
-import { PokemonCardContextTeste } from 'context/PokemonCardContextTeste'
+import { PokemonCardContext } from 'context/PokemonCardContext'
 import * as S from './styles'
 import { Header } from '../../components/Header/Header'
 
-export const PokedexPage = () => {
+export const Pokedex = () => {
 
-  const { pokemonCart } = useContext(PokemonCardContextTeste)
+  const { pokemonCart } = useContext(PokemonCardContext)
 
   return (
     <div>

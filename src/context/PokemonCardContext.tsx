@@ -1,95 +1,108 @@
-import React, { createContext, useState, useEffect, ReactNode } from 'react'
-import { toast } from 'react-toastify';
+import React, { ReactNode, createContext, useState } from "react";
+import { toast } from "react-toastify";
 
-interface PokemonData {
+export interface PokemonData {
+  name: string;
+  url: string;
   id: number;
-  name: string
-  amount: number;
+  sprites: {
+    front_default: string;
+    other: {
+      dream_world: {
+        front_default: string;
+      };
+      home: {
+        front_default: string;
+      };
+    };
+  };
+  types: Array<{
+    type: {
+      name: string;
+      url: string;
+    };
+  }>;
+  moves: Array<{
+    move: {
+      name: string;
+      url: string;
+    };
+  }>;
+  stats: Array<{
+    base_stat: number;
+    effort: number;
+  }>;
 }
 
-interface PokemonCardContextData {
-  pokemonCart: PokemonData[]
-  pokemonAmount: number
-
-  addToPokemon: (pokemon: PokemonData, name: string, id: number) => void
-  removePokemon: (id: number) => void
-  removeAllClearPokemon: () => void
-  // handleSearchName: (name: string) => void
+export interface PokemonCardContextData {
+  pokemonCart: PokemonData[];
+  searchResults: PokemonData[];
+  addToPokemon: (pokemon: PokemonData) => void;
+  removePokemon: (id: number) => void;
+  handleSearchName: (name: string) => void;
+  setSearchResults: (results: PokemonData[]) => void;
 }
 
-// CRIAR UMA VARIVEL PARA STARTAR NOSSO CONTEXTO 
-const PokemonCardContext = createContext<PokemonCardContextData>(
-  {} as PokemonCardContextData
-)
+export const PokemonCardContext = createContext<PokemonCardContextData>({
+  pokemonCart: [],
+  searchResults: [],
+  addToPokemon: () => { },
+  removePokemon: () => { },
+  handleSearchName: () => { },
+  setSearchResults: () => { },
+});
 
 interface PokemonCardProviderProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
-const PokemonCardProvider: React.FC<PokemonCardProviderProps> = ({ children }) => {
-
-  const [pokemonCart, setPokemonCart] = useState<PokemonData[]>([])
-  const [name, setName] = useState<string>("")
-  const [pokemonAmount, setPokemonAmout] = useState<number>(0)
-  const [searchPokemon, setSearchPokemon] = useState<string>('')
-
-  // const handleSearchName = (name: string) => {
-
-  //   const searchPokemonName = pokemonCart.find((pokemon) => (
-  //     pokemon.name.toLowerCase().includes
-  //   ));
-
-  //   return handleSearchName(searchPokemon)
-  // }
-
-  useEffect(() => {
-
-    if (pokemonCart) {
-      const amount = pokemonCart.reduce(
-        (acumulator, currentItem) => acumulator + 1, 0)
-
-      setPokemonAmout(amount)
-    }
-  }, [pokemonCart])
+const PokemonCardProvider: React.FC<PokemonCardProviderProps> = ({
+  children,
+}) => {
+  const [pokemonCart, setPokemonCart] = useState<PokemonData[]>([]);
+  const [searchResults, setSearchResults] = useState<PokemonData[]>([]);
 
 
-  const addToPokemon = (pokemon: PokemonData, name: string, id: number) => {
+  const handleSearchName = (name: string) => {
+    const searchResult = pokemonCart.filter((pokemon) =>
+      pokemon.name.toLowerCase().includes(name.toLowerCase())
+    );
+    setSearchResults(searchResult);
+  };
 
-    const checkPokemon = pokemonCart.find((pokemon) => pokemon.name === name)
-    //pokemoncart.filter((item) => item.id !== id)
+
+  const addToPokemon = (pokemon: PokemonData) => {
+    const checkPokemon = pokemonCart.find((p) => p.id === pokemon.id);
 
     if (checkPokemon) {
-      toast.error('Esse pokemon já foi capturado !')
+      toast.error("Esse Pokémon já foi capturado!");
       return;
     }
-    setPokemonCart([...pokemonCart, { ...pokemon, name, amount: 1 }])
-  }
+
+    setPokemonCart([...pokemonCart, { ...pokemon }]);
+  };
 
   const removePokemon = (id: number) => {
-    const pokemon = pokemonCart.filter((pokemon) => pokemon.id !== id)
-    setPokemonCart(pokemon)
-  }
-
-  const removeAllClearPokemon = () => {
-    setPokemonCart([])
-  }
-
-  console.log('hellooooo', pokemonCart)
+    const updatedPokemonCart = pokemonCart.filter(
+      (pokemon) => pokemon.id !== id
+    );
+    setPokemonCart(updatedPokemonCart);
+  };
 
   return (
     <PokemonCardContext.Provider
       value={{
         pokemonCart,
-        pokemonAmount,
+        searchResults,
         addToPokemon,
+        handleSearchName,
+        setSearchResults,
         removePokemon,
-        removeAllClearPokemon,
-        // handleSearchName,
       }}
     >
       {children}
     </PokemonCardContext.Provider>
-  )
-}
+  );
+};
 
-export default PokemonCardProvider
+export default PokemonCardProvider;

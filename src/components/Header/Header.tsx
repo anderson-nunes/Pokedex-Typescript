@@ -1,5 +1,5 @@
 import React from 'react'
-import * as S from './styles'
+// import * as S from './styles'
 //@ts-ignore
 import pokemonlogo from '../../assets/pokemonlogo.png'
 import { goToPokedexPage, goToPokemonListPage } from '../../routes/coordinatos'
@@ -19,7 +19,6 @@ export const Header = () => {
         <div onClick={() => goToPokedexPage(navigate)} className="pokeball">
           <div className="pokeball__button"></div>
         </div>
-
       </div>
     </div>
   )
