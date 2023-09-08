@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Card } from '../../components/Card/Card';
 import { Header } from '../../components/Header/Header';
 import { PokemonContext } from 'context/PokemonContext';
@@ -13,6 +13,8 @@ export const PokemonList = () => {
     currentPage,
     itemsPerPage,
     handleNextPage,
+    // search,
+    // setSearch
   } = useContext(PokemonContext);
 
   const { pokemonCart } = useContext(PokemonCardContext);

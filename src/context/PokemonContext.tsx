@@ -59,6 +59,8 @@ interface PokemonContextType {
   handlePreviousPage: () => void,
   handleNextPage: () => void;
   itemsPerPage: number;
+  // search: string,
+  // setSearch: () => void,
 }
 
 // CRIANDO O CONTEXTO COM UM VALOR
@@ -69,14 +71,15 @@ export const PokemonContext = createContext<PokemonContextType>({
   handlePreviousPage: () => { },
   handleNextPage: () => { },
   itemsPerPage: 25,
+  // search: '',
+  // setSearch: () => { }
 })
 
 const PokemonProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   // ESTADOS POKEMONS
   const [pokemons, setPokemons] = useState<Pokemon[]>([])
-
   const [currentPage, setCurrentPage] = useState(1);
-
+  const [search, setSearch] = useState<string>('')
   const itemsPerPage = 25;
 
   const getPokemons = async () => {
@@ -109,6 +112,18 @@ const PokemonProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     }
   };
 
+  // const handleSearchName = (search: string) => {
+
+  //   setTimeout(() => {
+  //     setCurrentPage(1)
+  //     getPokemons(search)
+  //   }, 3000)
+  // }
+
+  // useEffect(() => {
+  //   handleSearchName(search)
+  // }, [search]);
+
   useEffect(() => {
     getPokemons()
   }, [currentPage])
@@ -124,6 +139,8 @@ const PokemonProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
       value={{
         pokemons,
         currentPage,
+        // search,
+        // setSearch,
         getPokemons,
         handlePreviousPage,
         handleNextPage,

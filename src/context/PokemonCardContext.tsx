@@ -36,20 +36,14 @@ export interface PokemonData {
 
 export interface PokemonCardContextData {
   pokemonCart: PokemonData[];
-  searchResults: PokemonData[];
   addToPokemon: (pokemon: PokemonData) => void;
   removePokemon: (id: number) => void;
-  handleSearchName: (name: string) => void;
-  setSearchResults: (results: PokemonData[]) => void;
 }
 
 export const PokemonCardContext = createContext<PokemonCardContextData>({
   pokemonCart: [],
-  searchResults: [],
   addToPokemon: () => { },
   removePokemon: () => { },
-  handleSearchName: () => { },
-  setSearchResults: () => { },
 });
 
 interface PokemonCardProviderProps {
@@ -60,15 +54,7 @@ const PokemonCardProvider: React.FC<PokemonCardProviderProps> = ({
   children,
 }) => {
   const [pokemonCart, setPokemonCart] = useState<PokemonData[]>([]);
-  const [searchResults, setSearchResults] = useState<PokemonData[]>([]);
 
-
-  const handleSearchName = (name: string) => {
-    const searchResult = pokemonCart.filter((pokemon) =>
-      pokemon.name.toLowerCase().includes(name.toLowerCase())
-    );
-    setSearchResults(searchResult);
-  };
 
 
   const addToPokemon = (pokemon: PokemonData) => {
@@ -93,10 +79,7 @@ const PokemonCardProvider: React.FC<PokemonCardProviderProps> = ({
     <PokemonCardContext.Provider
       value={{
         pokemonCart,
-        searchResults,
         addToPokemon,
-        handleSearchName,
-        setSearchResults,
         removePokemon,
       }}
     >

@@ -55,7 +55,7 @@ export const SearchPokemon = styled.div`
   outline: none;
   box-shadow: none;
   border: none;
-  color: #23242a;
+  color: #c81511;
   font-size: 1em;
   letter-spacing: 0.05em;
   transition: 0.5s;

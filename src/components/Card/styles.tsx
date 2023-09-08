@@ -150,6 +150,7 @@ export const Card = styled.div<CardProps>`
     visibility: hidden;
     padding-top: 0;
     padding-bottom: 0;
+    
   }
 
   &:hover .size {
@@ -169,12 +170,12 @@ export const Card = styled.div<CardProps>`
     border-radius: 4px;
     margin-top: 10px;
     text-decoration: none;
-    width: 28%;
+    width: 70px;
     color: #111;
     opacity: 0;
     transform: translateY(50px);
     transition: 0.5s;
-    margin-top: 0;
+    margin-bottom: .5rem;
     cursor: pointer;
   }
 
@@ -220,17 +221,41 @@ export const CardtextName = styled.h2`
   color: transparent;
 `
 
-export const PokeBallOpen = styled.img`  
-  width: 65px;
+export const ContainerPokeBall = styled.div`
+  flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
+  margin: -2rem 0;
+`
+
+export const PokeBallOpen = styled.img`  
+  width: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
   margin: 0 auto;
+
 `
 
 
 export const PokeBallClose = styled.img`  
-  width: 40px;
+  width: 30px;
 `
+
+export const DetailButton = styled.button`
+  background-color: #548c1c;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 1rem 0;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color:   #007bff;
+  }
+`;

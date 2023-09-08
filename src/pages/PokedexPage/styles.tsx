@@ -5,7 +5,7 @@ import pokemonFundo06 from '../../assets/pokemonFundo06.jpg'
 export const ContainerCard = styled.div`
 
   max-width: 100%;
-  min-height: 82vh;
+  min-height: 100vh;
   background: url(${pokemonFundo06}) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -17,5 +17,6 @@ export const ContainerCard = styled.div`
   flex-wrap: wrap;
   gap: 4rem;
   padding: 4rem;
+  margin-top: 4rem;
 
 `

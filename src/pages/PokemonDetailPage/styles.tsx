@@ -18,6 +18,7 @@ export const ContainerCard = styled.div`
   gap: 4rem;
   padding: 4rem;
   position: relative;
+  margin-top: 4rem;
 `
 
 export const PokemonAnimation = styled.img`

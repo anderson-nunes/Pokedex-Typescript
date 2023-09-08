@@ -60,22 +60,25 @@ export const Card = ({ name, image, types, id, pokemon }:
               ))}
             </S.CardPokeTypes>
           </div>
-          {location.pathname === '/' &&
-            <S.PokeBallClose
-              onClick={() => addToPokemon(pokemon)}
-              className="pokebola"
-              src={pokeBolaFechada}
-              alt=""
-            />
-          }
-          {location.pathname === '/pokedexPage' &&
-            <S.PokeBallOpen
+          <S.ContainerPokeBall>
+            {location.pathname === '/' &&
+              <S.PokeBallClose
+                onClick={() => addToPokemon(pokemon)}
+                className="pokebola"
+                src={pokeBolaFechada}
+                alt=""
+              />
+            }
+            {location.pathname === '/pokedexPage' &&
+              <S.PokeBallOpen
 
-              onClick={() => removePokemon(id)}
-              src={pokeBallOpen}
-              alt=""
-            />
-          }
+                onClick={() => removePokemon(id)}
+                src={pokeBallOpen}
+                alt=""
+              />
+            }
+            <S.DetailButton>Detalhes</S.DetailButton>
+          </S.ContainerPokeBall>
         </div>
       </S.Card>
     </S.CardContainer>
