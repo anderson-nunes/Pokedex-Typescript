@@ -39,7 +39,6 @@ export const ContainerDetailPokemon = styled.div`
   background-color: #ffff;
   border-radius: 38px;
   height: auto;
-  padding: 2rem;
 `
 
 export const PokemonName = styled.div`
