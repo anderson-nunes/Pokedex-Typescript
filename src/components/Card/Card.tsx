@@ -42,9 +42,7 @@ export const Card = ({ name, image, types, id, pokemon }:
           />
         </div>
 
-        <S.CardPokeImg
-          onClick={() => goToPokemonDetailPage(navigate, name, types, id)}
-          src={pokeBolaSemFundo} alt="Pokebola Sem fundo" />
+        <S.CardPokeImg src={pokeBolaSemFundo} alt="Pokebola Sem fundo" />
 
         <div className="contentBx">
           <S.CardtextName>{name}</S.CardtextName>
@@ -77,7 +75,8 @@ export const Card = ({ name, image, types, id, pokemon }:
                 alt=""
               />
             }
-            <S.DetailButton>Detalhes</S.DetailButton>
+            <S.DetailButton onClick={() => goToPokemonDetailPage(navigate, name, types, id)}
+            >Detalhes</S.DetailButton>
           </S.ContainerPokeBall>
         </div>
       </S.Card>
