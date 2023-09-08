@@ -236,9 +236,7 @@ export const PokeBallOpen = styled.img`
   align-items: center;
   padding-top: 2rem;
   margin: 0 auto;
-
 `
-
 
 export const PokeBallClose = styled.img`  
   width: 30px;

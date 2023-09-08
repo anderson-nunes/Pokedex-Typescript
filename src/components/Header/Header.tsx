@@ -1,5 +1,4 @@
 import React from 'react'
-// import * as S from './styles'
 //@ts-ignore
 import pokemonlogo from '../../assets/pokemonlogo.png'
 import { goToPokedexPage, goToPokemonListPage } from '../../routes/coordinatos'
