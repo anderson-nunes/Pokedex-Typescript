@@ -15,6 +15,10 @@ Link surge: [projeto-pokedex-typescript](https://projeto-pokedex-typescript.verc
 
 ## Resumo do Projeto
 
-O projeto "Pokedex" oferece uma experiência completa de exploração de Pokémon. Com recursos de captura, os usuários podem adicionar novos Pokémon à sua coleção. Além disso, detalhes abrangentes sobre cada Pokémon, como estatísticas e habilidades, podem ser visualizados. A flexibilidade de excluir Pokémon da coleção também está disponível. Essa aplicação proporciona uma jornada envolvente para os fãs, permitindo que interajam com os Pokémon de maneiras diversas e significativas.
+O projeto "PokedexTS" é uma iniciativa de estudo em andamento, que visa oferecer uma experiência de aprendizado prática usando TypeScript. Este projeto utiliza a [Poke Api](https://pokeapi.co/ 'Poke Api') como fonte de dados, uma API pública amplamente reconhecida no contexto de desenvolvimento de aplicativos e frequentemente usada em cenários de estudos e práticas em programação.
 
-O projeto terá como fonte de dados para a sua criação a [Poke Api](https://pokeapi.co/ 'Poke Api'), uma Api pública, muito usada para aplicações focadas em aprendizado de programação e também usada em cases de processos seletivos.
+A proposta do projeto é permitir que desenvolvedores iniciantes e entusiastas de TypeScript aprimorem suas habilidades por meio da construção de uma Pokedex simplificada. Neste ambiente de aprendizado, os participantes podem explorar conceitos, práticas e desafios comuns encontrados no desenvolvimento de aplicativos web.
+
+O projeto atualmente está em fase de desenvolvimento e visa abranger tópicos como consumo de API, gerenciamento de estado, roteamento, estilização com CSS (ou bibliotecas como styled-components), entre outros. Os participantes terão a oportunidade de adicionar Pokémon à sua "coleção", visualizar detalhes sobre cada Pokémon, como estatísticas e habilidades, e também praticar a exclusão de Pokémon da coleção.
+
+O objetivo final do projeto "PokedexTS" é fornecer uma experiência envolvente e educacional para os entusiastas de TypeScript, permitindo que eles interajam com os conceitos e tecnologias relacionados ao desenvolvimento de aplicativos web de forma prática e significativa.
